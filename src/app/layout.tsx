@@ -1,17 +1,6 @@
-import type { Metadata } from "next";
-import localFont from "next/font/local";
-import "./globals.css";
+import type {Metadata} from "next";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,10 +14,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className="dark container mx-auto grid min-h-screen grid-rows-[auto,1fr,auto] px-4 font-sans antialiased">
+        <header className="text-xl font-bold leading-[4rem]">Grid Challenge</header>
+        <main className="container py-8">{children}</main>
+        <footer className="text-center leading-[4rem] opacity-70">
+          © By Kevoff {new Date().getFullYear()}
+        </footer>
       </body>
     </html>
   );
